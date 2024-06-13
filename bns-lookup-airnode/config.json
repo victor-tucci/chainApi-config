@@ -1,0 +1,172 @@
+{
+  "apiCredentials": [],
+  "chains": [
+    {
+      "authorizations": {
+        "requesterEndpointAuthorizations": {}
+      },
+      "authorizers": {
+        "crossChainRequesterAuthorizers": [],
+        "crossChainRequesterAuthorizersWithErc721": [],
+        "requesterAuthorizersWithErc721": [],
+        "requesterEndpointAuthorizers": []
+      },
+      "blockHistoryLimit": 60,
+      "contracts": {
+        "AirnodeRrp": "0x2ab9f26E18B64848cd349582ca3B55c2d06f507d"
+      },
+      "id": "11155111",
+      "maxConcurrency": 50,
+      "minConfirmations": 0,
+      "options": {
+        "fulfillmentGasLimit": 500000,
+        "gasPriceOracle": [
+          {
+            "gasPriceStrategy": "providerRecommendedGasPrice",
+            "recommendedGasPriceMultiplier": 1.2
+          },
+          {
+            "gasPrice": {
+              "unit": "gwei",
+              "value": 10
+            },
+            "gasPriceStrategy": "constantGasPrice"
+          }
+        ],
+        "withdrawalRemainder": {
+          "unit": "wei",
+          "value": 0
+        }
+      },
+      "providers": {
+        "sepoliaPublic": {
+          "url": "https://rpc-sepolia.rockx.com"
+        },
+        "sepoliaTestnet1": {
+          "url": "${SEPOLIA_TESTNET_1_PROVIDER_URL}"
+        }
+      },
+      "type": "evm"
+    }
+  ],
+  "nodeSettings": {
+    "airnodeWalletMnemonic": "${AIRNODE_WALLET_MNEMONIC}",
+    "cloudProvider": {
+      "disableConcurrencyReservations": true,
+      "region": "ap-southeast-1",
+      "type": "aws"
+    },
+    "heartbeat": {
+      "apiKey": "${HEARTBEAT_API_KEY}",
+      "enabled": true,
+      "url": "${HEARTBEAT_URL}"
+    },
+    "httpGateway": {
+      "corsOrigins": [],
+      "enabled": true,
+      "maxConcurrency": 20
+    },
+    "httpSignedDataGateway": {
+      "corsOrigins": [],
+      "enabled": true,
+      "maxConcurrency": 20
+    },
+    "logFormat": "plain",
+    "logLevel": "INFO",
+    "nodeVersion": "0.14.1",
+    "oevGateway": {
+      "corsOrigins": [],
+      "enabled": true,
+      "maxConcurrency": 20
+    },
+    "stage": "bns-eth"
+  },
+  "ois": [
+    {
+      "apiSpecifications": {
+        "components": {
+          "securitySchemes": {}
+        },
+        "paths": {
+          "/bnslookup": {
+            "get": {
+              "parameters": [
+                {
+                  "in": "query",
+                  "name": "name"
+                }
+              ]
+            }
+          }
+        },
+        "security": {},
+        "servers": [
+          {
+            "url": "http://154.12.248.236/api"
+          }
+        ]
+      },
+      "endpoints": [
+        {
+          "fixedOperationParameters": [],
+          "name": "bns-eth",
+          "operation": {
+            "method": "get",
+            "path": "/bnslookup"
+          },
+          "parameters": [
+            {
+              "name": "name",
+              "operationParameter": {
+                "in": "query",
+                "name": "name"
+              },
+              "required": false
+            }
+          ],
+          "postProcessingSpecifications": [],
+          "preProcessingSpecifications": [],
+          "reservedParameters": [
+            {
+              "name": "_type"
+            },
+            {
+              "name": "_path"
+            },
+            {
+              "name": "_times"
+            }
+          ]
+        }
+      ],
+      "oisFormat": "2.3.2",
+      "title": "bns-eth",
+      "version": "0.1.0"
+    }
+  ],
+  "templates": [],
+  "triggers": {
+    "http": [
+      {
+        "endpointId": "0x844e2887a1cc92c9fc57529984effaef14bcfb8d0cc3ddaf41143c228b8fc6d1",
+        "endpointName": "bns-eth",
+        "oisTitle": "bns-eth"
+      }
+    ],
+    "httpSignedData": [
+      {
+        "endpointId": "0x844e2887a1cc92c9fc57529984effaef14bcfb8d0cc3ddaf41143c228b8fc6d1",
+        "endpointName": "bns-eth",
+        "oisTitle": "bns-eth"
+      }
+    ],
+    "rrp": [
+      {
+        "cacheResponses": false,
+        "endpointId": "0x844e2887a1cc92c9fc57529984effaef14bcfb8d0cc3ddaf41143c228b8fc6d1",
+        "endpointName": "bns-eth",
+        "oisTitle": "bns-eth"
+      }
+    ]
+  }
+}
